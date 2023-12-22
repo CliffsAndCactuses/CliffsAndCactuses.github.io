@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="menu-container">
+            <menuButton class="menu-button" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </menuButton>
+            <div class="dropdown-content" id="dropdownContent">
+                <a href="timer.html">Game Timer</a>
+                <a href="rules.html">Rules</a>
+                <!-- Add more links as needed -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Your existing content here -->
+        <audioButton id="playButton" onclick="toggleMusic()">
+            <i id="playIcon" class="fas fa-play"></i>
+            <i id="pauseIcon" class="fas fa-pause"></i>
+        </audioButton>
+        <overlay id="runners"></div>
+    </div>
+    <audio id="audio" src="Banjo_Timer_1.m4a"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

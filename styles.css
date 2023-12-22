@@ -1,57 +1,153 @@
 body {
     margin: 0;
+    overflow: hidden; /* Prevents scrolling */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(to top, #ED1189 0%, #FFC000 69%, #FFD966 79%, #FFF2CC 100%);
+    background: linear-gradient(to top, rgba(237, 17, 137, 0.8) 0%, rgba(255, 192, 0, 0.8) 69%, rgba(255, 217, 102, 0.8) 79%, rgba(255, 242, 204, 0.8) 100%)
+}
+
+.top-bar {
+    width: 100%;
+    background-color: #333;
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed; /* Fix the position at the top */
+    top: 0; /* Set to the top of the viewport */
+    z-index: 1000; /* Ensure the menu stays above other elements */
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 36px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 12px 24px;
+    text-decoration: none;
+    text-justify: left;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.menu-container:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Start rules page CSS */
+.white-content {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #333;
+    line-height: 1.5;
+}
+
+.video-container {
+    margin-top: 20px;
+}
+/* End rules page CSS */
+
+
+menuButton {
+    font-size: 24px;
+    padding: 10px 50px;
+    border-radius: 0%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    position: relative;
+}
+
+menuButton:hover {
+    background-color: #555;
 }
 
 .container {
-    text-align: center;
+    text-align: left;
+    margin-top: 60px; /* Adjust the margin to prevent content overlap with the fixed menu */
 }
 
-.progress-container {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    margin: 20px;
-}
+audioButton {
+    background-color: #ED1189;
+    width: 500px; /* Set the fixed width */
+    height: 500px; /* Set the fixed height */
 
-.progress {
-    color: #000000;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    position: absolute;
-    clip-path: circle(0% at center);
-    transition: clip-path 0.3s ease;
-}
-
-button {
-    background-color: #3498db;
-    font-size: 24px;
-    padding: 15px 30px;
+    font-size: 300px;
     border-radius: 50%;
     cursor: pointer;
     border: none;
     outline: none;
     transition: background-color 0.3s, transform 0.3s;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-button:hover {
-    background-color: #2980b9;
+audioButton:hover {
+    background-color: #e74da1;
+}
+
+#playIcon{
+    color: #ffffff;
+    position: relative;
+    left: 5%; /* Adjust the percentage as needed */
 }
 
 #pauseIcon {
-    display: none; /* Hide the pause icon initially */
-    color: #ffffff; 
+    color: #ffffff;
+    display: none;
 }
 
-#playIcon {
-    color: #ffffff;
+overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%); /* Center the element */
+    width: 90%;
+    height: 90%;
+    background: url('Running.png') center center no-repeat;
+    background-size: contain;
+    opacity: 0.5; /* Adjust the opacity as needed */
+    transition: background-color 0.3s, transform 0.3s;
+    pointer-events: none; /* Ensures that the overlay doesn't interfere with button interactions */
+    transform-origin: center center; /* Set the rotation origin to the center */
 }
+
 
 .rotating {
     animation: rotate 2s linear infinite;
@@ -63,5 +159,19 @@ button:hover {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+.running {
+    animation: run 27.12s linear infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes run {
+    from {
+        transform: translate(-50%, -45%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -45%) rotate(360deg);
     }
 }
