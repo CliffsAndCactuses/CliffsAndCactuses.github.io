@@ -155,6 +155,28 @@ overlay {
     transform-origin: center center;
 }
 
+/* Update for phones */
+/* Add a media query for larger screens if needed */
+/* @media (max-width: 768px) {
+    overlay {
+        transform: translate(-50%, -50%);
+    }
+
+    .running {
+        animation: run 27.15s linear infinite;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes run {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+} */
+
 .rotating {
     animation: rotate 2s linear infinite;
 }
