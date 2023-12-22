@@ -57,13 +57,17 @@ body {
     display: block;
 }
 
-
 /* Start rules page CSS */
+.rules-container{
+    max-width: 50em;
+    padding: 2em;
+}
+
 .white-content {
     background-color: #ffffff;
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 3em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -81,10 +85,9 @@ p {
 }
 /* End rules page CSS */
 
-
 menuButton {
     font-size: 24px;
-    padding: 10px 50px;
+    padding: 10px 20px; /* Adjust padding for better spacing */
     border-radius: 0%;
     cursor: pointer;
     border: none;
@@ -97,16 +100,15 @@ menuButton:hover {
 }
 
 .container {
-    text-align: left;
-    margin-top: 60px; /* Adjust the margin to prevent content overlap with the fixed menu */
+    text-align: center; /* Center the content */
+    margin-top: 60px;
 }
 
 audioButton {
     background-color: #ED1189;
-    width: 500px; /* Set the fixed width */
-    height: 500px; /* Set the fixed height */
-
-    font-size: 300px;
+    width: 2em;
+    height: 2em;
+    font-size: 10em;
     border-radius: 50%;
     cursor: pointer;
     border: none;
@@ -122,10 +124,10 @@ audioButton:hover {
     background-color: #e74da1;
 }
 
-#playIcon{
+#playIcon {
     color: #ffffff;
     position: relative;
-    left: 5%; /* Adjust the percentage as needed */
+    left: 5%;
 }
 
 #pauseIcon {
@@ -137,17 +139,16 @@ overlay {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -45%); /* Center the element */
-    width: 90%;
-    height: 90%;
+    transform: translate(-50%, -44%); /* Center the element */
+    width: 30em;
+    height: 30em;
     background: url('Running.png') center center no-repeat;
     background-size: contain;
-    opacity: 0.5; /* Adjust the opacity as needed */
+    opacity: 0.5;
     transition: background-color 0.3s, transform 0.3s;
-    pointer-events: none; /* Ensures that the overlay doesn't interfere with button interactions */
-    transform-origin: center center; /* Set the rotation origin to the center */
+    pointer-events: none;
+    transform-origin: center center;
 }
-
 
 .rotating {
     animation: rotate 2s linear infinite;
@@ -163,15 +164,15 @@ overlay {
 }
 
 .running {
-    animation: run 27.12s linear infinite;
+    animation: run 27.15s linear infinite;
     animation-fill-mode: forwards;
 }
 
 @keyframes run {
     from {
-        transform: translate(-50%, -45%) rotate(0deg);
+        transform: translate(-50%, -44%) rotate(0deg);
     }
     to {
-        transform: translate(-50%, -45%) rotate(360deg);
+        transform: translate(-50%, -44%) rotate(360deg);
     }
 }
