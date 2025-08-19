@@ -21,7 +21,7 @@ body {
 .top-bar {
     width: 100%;
     height: var(--top-bar-height); /* fix height used by body calc */
-    background-color: #ff00aa;
+    background-color: #333333;
     padding: 0px;
     display: flex;
     justify-content: flex-end;
