@@ -8,6 +8,7 @@
     <title>Music Player</title>
 </head>
 <body>
+    <!-- Top Menu -->
     <div class="top-bar">
         <div class="menu-container">
             <menuButton class="menu-button" onclick="toggleMenu()">
@@ -21,14 +22,26 @@
             </div>
         </div>
     </div>
+
+    <!-- Countdown display (white text at top) -->
+    <div id="countdown" class="countdown">60s</div>
+
+    <!-- Play Button -->
     <div class="container">
-        <!-- Your existing content here -->
         <audioButton id="playButton" onclick="toggleMusic()">
             <i id="playIcon" class="fas fa-play"></i>
             <i id="pauseIcon" class="fas fa-pause"></i>
         </audioButton>
-        <overlay id="runners"></div>
+        <overlay id="runners"></overlay>
     </div>
+
+    <!-- Speed controls (bottom) -->
+    <div class="speed-row">
+        <button class="speed-btn" id="btn-slow" data-speed="slow"></button>
+        <button class="speed-btn active" id="btn-medium" data-speed="medium"></button>
+        <button class="speed-btn" id="btn-fast" data-speed="fast"></button>
+    </div>
+
     <audio id="audio" src="Banjo_Timer_1.wav"></audio>
     <script src="script.js"></script>
 </body>

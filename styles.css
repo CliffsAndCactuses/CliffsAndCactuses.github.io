@@ -1,3 +1,7 @@
+:root {
+    --top-bar-height: 64px; /* adjust if your top bar is a different height */
+}
+
 /* Global Styles */
 body {
     margin: 0;
@@ -6,13 +10,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* make the layout area exclude the fixed top bar */
+    padding-top: var(--top-bar-height);
+    height: calc(100vh - var(--top-bar-height));
+    position: relative; /* for absolute centering of inner elements */
     background: linear-gradient(to top, rgba(237, 17, 137, 0.8) 0%, rgba(255, 192, 0, 0.8) 69%, rgba(255, 217, 102, 0.8) 79%, rgba(255, 242, 204, 0.8) 100%);
 }
 
 /* Top Bar Styles */
 .top-bar {
     width: 100%;
+    height: var(--top-bar-height); /* fix height used by body calc */
     background-color: #333;
     padding: 12px;
     display: flex;
@@ -102,9 +110,14 @@ menuButton:hover {
     background-color: #555;
 }
 
+/* Center the play button container exactly in the remaining area */
 .container {
-    text-align: center; /* Center the content */
-    margin-top: 60px;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-top: 0; /* remove previous offset that caused movement */
 }
 
 /* Audio Button Styles */
@@ -142,7 +155,7 @@ audioButton:hover {
 /* Overlay Image Styles */
 overlay {
     position: absolute;
-    top: 50%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -35%); /* Center the element */
     width: 30em;
@@ -191,8 +204,13 @@ overlay {
 }
 
 .running {
-    animation: run 27.15s linear infinite;
+    /* duration is controlled from JS via inline style (overlay.style.animationDuration) */
+    animation-name: run;
+    animation-timing-function: linear;
+    animation-iteration-count: 1; /* one revolution per timer run */
     animation-fill-mode: forwards;
+    /* fallback duration (very short) in case JS doesn't run */
+    animation-duration: 1s;
 }
 
 @keyframes run {
@@ -202,4 +220,64 @@ overlay {
     to {
         transform: translate(-50%, -35%) rotate(360deg);
     }
+}
+
+/* Place countdown independently so it doesn't push the container */
+.countdown {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
+    font-size: 84px;
+    margin: 0;
+    user-select: none;
+    font-weight: 700;
+    text-shadow: 0 0px 12px rgba(0,0,0,0.6); /* stronger shadow under timer */
+}
+
+/* Slightly smaller on narrow screens */
+@media (max-width: 480px) {
+    .countdown {
+        font-size: 84px;
+    }
+}
+
+/* Bottom speed row */
+.speed-row {
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.speed-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.06);
+    color: white;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+}
+
+.speed-btn:hover { transform: translateY(-3px); }
+
+.speed-btn.active {
+    background: white;
+    color: #222;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
