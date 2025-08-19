@@ -21,8 +21,8 @@ body {
 .top-bar {
     width: 100%;
     height: var(--top-bar-height); /* fix height used by body calc */
-    background-color: #333;
-    padding: 12px;
+    background-color: #ff00aa;
+    padding: 0px;
     display: flex;
     justify-content: flex-end;
     position: fixed; /* Fix the position at the top */
@@ -32,7 +32,8 @@ body {
 
 /* Dropdown Menu Styles */
 .menu-container {
-    position: relative;
+    position: absolute;
+    top: 20%
 }
 
 .menu-button {
