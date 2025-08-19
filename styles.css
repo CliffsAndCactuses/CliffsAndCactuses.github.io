@@ -113,7 +113,7 @@ menuButton:hover {
 /* Center the play button container exactly in the remaining area */
 .container {
     position: absolute;
-    top: 57%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -123,8 +123,8 @@ menuButton:hover {
 /* Audio Button Styles */
 audioButton {
     background-color: #ED1189;
-    width: 2em;
-    height: 2em;
+    width: 1.75em;
+    height: 1.75em;
     font-size: 10em;
     border-radius: 50%;
     cursor: pointer;
@@ -155,7 +155,7 @@ audioButton:hover {
 /* Overlay Image Styles */
 overlay {
     position: absolute;
-    top: 27%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -35%); /* Center the element */
     width: 30em;
@@ -225,7 +225,7 @@ overlay {
 /* Place countdown independently so it doesn't push the container */
 .countdown {
     position: absolute;
-    top: 15%;
+    top: 13%;
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
@@ -247,7 +247,7 @@ overlay {
 /* Bottom speed row */
 .speed-row {
     position: absolute;
-    top: 83%;
+    top: 77%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
