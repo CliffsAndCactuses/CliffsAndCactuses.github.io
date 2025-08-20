@@ -156,11 +156,11 @@ audioButton:hover {
 /* Overlay Image Styles */
 overlay {
     position: absolute;
-    top: 30%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -35%); /* Center the element */
-    width: 30em;
-    height: 30em;
+    width: 26.25em;
+    height: 26.25em;
     background: url('Running.png') center center no-repeat;
     background-size: contain;
     opacity: 0.5;
