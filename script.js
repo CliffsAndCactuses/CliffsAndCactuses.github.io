@@ -37,6 +37,9 @@ function setSpeed(speedKey) {
     updateCountdown();
     updateSpeedButtons();
 
+    // update the text label under the buttons
+    updateButtonLabel();
+
     // set overlay revolution duration to match timer length
     overlay.style.animationDuration = `${speeds[currentSpeed].seconds}s`;
 
@@ -58,6 +61,18 @@ function setSpeed(speedKey) {
     } else {
         audio.src = speeds[currentSpeed].src;
     }
+}
+
+// Add this function near other helpers in the file
+function updateButtonLabel() {
+    const labelEl = document.getElementById('button-label');
+    if (!labelEl) return;
+    const labels = {
+        fast: 'Panic Mode!',
+        medium: 'Race Pace',
+        slow: 'No Rush'
+    };
+    labelEl.textContent = labels[currentSpeed] || '';
 }
 
 function startTimer() {
@@ -133,6 +148,7 @@ speedButtons.forEach(btn => {
 // initialize UI
 updateCountdown();
 updateSpeedButtons();
+updateButtonLabel(); // <-- ensure label shows initial selection
 // ensure audio and overlay are set to current speed on load
 audio.src = speeds[currentSpeed].src;
 overlay.style.animationDuration = `${speeds[currentSpeed].seconds}s`;

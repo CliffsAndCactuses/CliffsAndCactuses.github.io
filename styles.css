@@ -282,3 +282,26 @@ overlay {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
+
+#button-label {
+    position: absolute;
+    /* place it just below the speed-row (speed-row top is 77%) */
+    top: calc(77% + 80px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    z-index: 50;
+    pointer-events: none;
+    font-weight: 600;
+    text-shadow: 0 0 12px rgba(0,0,0,0.6);
+}
+
+/* Slightly smaller text on narrow screens */
+@media (max-width: 480px) {
+    #button-label {
+        font-size: 14px;
+        top: calc(77% + 75px);
+    }
+}
